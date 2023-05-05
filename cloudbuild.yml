@@ -1,5 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
+    id: 'build'
     args: [
       'build',
       '-t',
@@ -10,6 +11,7 @@ steps:
     ]
 
   - name: 'gcr.io/cloud-builders/docker'
+    id: 'push'
     args: ['push', 'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway/production']
 source:
   repoSource:
