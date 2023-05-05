@@ -3,11 +3,16 @@ steps:
     args: [
       'build',
       '-t',
-      'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway',
+      'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway/production',
       '-f',
       './Dockerfile',
       '.',
     ]
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway']
+    args: ['push', 'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway/production']
+source:
+  repoSource:
+    projectId: 'nestjs-microservices-385318'
+    repoName: 'nestjs-microservices-api-gateway'
+    branchName: 'main'
