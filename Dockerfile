@@ -30,9 +30,13 @@ USER node
 
 FROM node:20-alpine AS production
 
+ENV API_GATEWAY_SERVICE_PORT 3000
+ENV AUTH_SERVICE_HOST 0.0.0.0
+ENV AUTH_SERVICE_PORT 50051
+ENV ACCOUNT_SERVICE_HOST 0.0.0.0
+ENV ACCOUNT_SERVICE_PORT 50052
+
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
-
-EXPOSE 3000
 
 CMD [ "node", "dist/main.js" ]
