@@ -35,6 +35,8 @@ ENV AUTH_SERVICE_HOST 0.0.0.0
 ENV AUTH_SERVICE_PORT 50051
 ENV ACCOUNT_SERVICE_HOST 0.0.0.0
 ENV ACCOUNT_SERVICE_PORT 50052
+ENV GRPC_TRACE all
+ENV GRPC_VERBOSITY debug
 
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
