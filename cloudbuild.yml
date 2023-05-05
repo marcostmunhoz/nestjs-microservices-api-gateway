@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway',
+      '-f',
+      './Dockerfile',
+      '.',
+    ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'southamerica-east1-docker.pkg.dev/nestjs-microservices-385318/api-gateway']
