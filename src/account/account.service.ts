@@ -21,7 +21,6 @@ export class AccountService {
   }
 
   async register(data: any) {
-    console.log(data);
     return firstValueFrom(this.svc.register(data));
   }
 

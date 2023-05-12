@@ -24,7 +24,7 @@ export class AccountController {
   @Get()
   @UseGuards(AuthGuard)
   async show(@Req() request: any): Promise<GetAccountResponse> {
-    return await this.accountService.getAccount(request.id);
+    return await this.accountService.getAccount(request.accountId);
   }
 
   @Post()
@@ -38,6 +38,9 @@ export class AccountController {
     @Req() request: any,
     @Body() data: Omit<UpdateAccountRequest, 'id'>,
   ): Promise<UpdateAccountResponse> {
-    return await this.accountService.updateAccount({ ...data, id: request.id });
+    return await this.accountService.updateAccount({
+      ...data,
+      id: request.accountId,
+    });
   }
 }
